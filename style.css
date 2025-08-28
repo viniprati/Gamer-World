@@ -1,4 +1,3 @@
-
 /* --- Reset Básico e Variáveis de Cor --- */
 :root {
     --black: #0a0a0a;
@@ -258,28 +257,51 @@ section {
     margin-bottom: 0.5rem;
 }
 
-/* --- Seção de Galeria --- */
+/* --- Seção de Galeria (ATUALIZADO) --- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    /* Alterado para 4 colunas em telas grandes e se ajusta para telas menores */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
 }
 
 .gallery-item {
-    height: 250px;
+    position: relative;
+    height: 220px;
     border-radius: 10px;
-    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.05);
+    background-size: 70%;
     background-position: center;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease, background-color 0.4s ease;
     cursor: pointer;
     border: 2px solid transparent;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .gallery-item:hover {
     transform: scale(1.05);
-    filter: brightness(1.2);
+    background-color: rgba(255, 255, 255, 0.1);
     border-color: var(--neon-blue);
 }
+
+.gallery-item .game-title {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--text-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .game-title {
+    opacity: 1;
+}
+
 
 /* --- Seção de Depoimentos --- */
 .testimonials-grid {
