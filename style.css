@@ -153,64 +153,15 @@ body {
     display: block;
 }
 
-.cta-button span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--neon-blue));
-    animation: animate1 1s linear infinite;
-}
+.cta-button span:nth-child(1) { top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--neon-blue)); animation: animate1 1s linear infinite; }
+@keyframes animate1 { 0% { left: -100%; } 50%, 100% { left: 100%; } }
+.cta-button span:nth-child(2) { top: -100%; right: 0; width: 2px; height: 100%; background: linear-gradient(180deg, transparent, var(--neon-blue)); animation: animate2 1s linear infinite; animation-delay: 0.25s; }
+@keyframes animate2 { 0% { top: -100%; } 50%, 100% { top: 100%; } }
+.cta-button span:nth-child(3) { bottom: 0; right: -100%; width: 100%; height: 2px; background: linear-gradient(270deg, transparent, var(--neon-blue)); animation: animate3 1s linear infinite; animation-delay: 0.5s; }
+@keyframes animate3 { 0% { right: -100%; } 50%, 100% { right: 100%; } }
+.cta-button span:nth-child(4) { bottom: -100%; left: 0; width: 2px; height: 100%; background: linear-gradient(360deg, transparent, var(--neon-blue)); animation: animate4 1s linear infinite; animation-delay: 0.75s; }
+@keyframes animate4 { 0% { bottom: -100%; } 50%, 100% { bottom: 100%; } }
 
-@keyframes animate1 {
-    0% { left: -100%; }
-    50%, 100% { left: 100%; }
-}
-
-.cta-button span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, var(--neon-blue));
-    animation: animate2 1s linear infinite;
-    animation-delay: 0.25s;
-}
-
-@keyframes animate2 {
-    0% { top: -100%; }
-    50%, 100% { top: 100%; }
-}
-
-.cta-button span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, var(--neon-blue));
-    animation: animate3 1s linear infinite;
-    animation-delay: 0.5s;
-}
-
-@keyframes animate3 {
-    0% { right: -100%; }
-    50%, 100% { right: 100%; }
-}
-
-.cta-button span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, var(--neon-blue));
-    animation: animate4 1s linear infinite;
-    animation-delay: 0.75s;
-}
-
-@keyframes animate4 {
-    0% { bottom: -100%; }
-    50%, 100% { bottom: 100%; }
-}
 
 /* --- Seções Padrão --- */
 section {
@@ -257,10 +208,9 @@ section {
     margin-bottom: 0.5rem;
 }
 
-/* --- Seção de Galeria (ATUALIZADO) --- */
+/* --- Seção de Galeria --- */
 .gallery-grid {
     display: grid;
-    /* Alterado para 4 colunas em telas grandes e se ajusta para telas menores */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
 }
@@ -329,6 +279,126 @@ section {
     font-weight: bold;
 }
 
+/* --- NOVA SEÇÃO VIP --- */
+.vip {
+    background-color: var(--black);
+}
+
+.vip-description {
+    text-align: center;
+    max-width: 600px;
+    margin: -2rem auto 3rem;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.vip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: start; /* Alinha os cards no topo */
+}
+
+.vip-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--purple);
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.vip-card.featured {
+    border-color: var(--neon-blue);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+}
+
+.vip-card.featured:hover {
+    transform: scale(1.1) translateY(-10px);
+}
+
+.featured-tag {
+    position: absolute;
+    top: 15px;
+    right: -45px;
+    background: var(--neon-blue);
+    color: var(--black);
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.vip-card:hover {
+    transform: translateY(-10px);
+}
+
+.vip-header {
+    text-align: center;
+    border-bottom: 1px solid var(--purple);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.vip-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--neon-blue);
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.vip-benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Faz a lista crescer para alinhar os botões */
+}
+
+.vip-benefits li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.vip-benefits i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.fa-check-circle { color: #28a745; }
+.fa-times-circle { color: #dc3545; }
+
+.vip-button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: var(--gradient);
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vip-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--purple);
+}
+
+
 /* --- Rodapé --- */
 .footer {
     background: var(--black);
@@ -366,6 +436,12 @@ section {
 }
 
 /* --- Responsividade --- */
+@media (max-width: 992px) {
+    .vip-card.featured {
+        transform: scale(1); /* Remove o destaque de tamanho em telas menores para não quebrar o layout */
+    }
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
